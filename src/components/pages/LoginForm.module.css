@@ -352,7 +352,7 @@ svg {
   margin-top: 20px;
   margin-bottom: 100px;
   gap: 16px;
-  display: flex;
+  display: block;
   align-items: center;
 }
 .icons-hashtag {
@@ -368,9 +368,10 @@ svg {
   border-radius: 4px;
   border: none;
   width: 300px;
-  padding-left: 50px;
+  padding: 12px;
   font-size: 20px;
-
+  display: block;
+  margin: auto;
 }
 
 /* .otp-input{

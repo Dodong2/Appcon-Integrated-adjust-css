@@ -361,9 +361,13 @@ nav {
 .table-row2 {
   border-bottom: 2px solid #fff;
   color: var(--white);
-  font-size: 11px;
+  font-size: 1em;
   padding-left: 300px;
   line-height: 20px;
+  text-align: right;
+}
+.table-row2 td{
+  padding: 12px;
 }
 .history-date {
   padding-left: 10px;

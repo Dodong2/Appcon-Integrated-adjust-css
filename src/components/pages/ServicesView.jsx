@@ -1,32 +1,46 @@
-// import HistoryData from './admin-side/HistoryData'
-import { FaLocationDot } from "react-icons/fa6";
-import JPHost from '../images/JP Hostpital.svg'
-import { FaArrowLeft } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
+import { FaLocationDot, FaArrowLeft } from "react-icons/fa6";
+import JPHost from '../images/JP Hostpital.svg';
 import { CarouselDApiDemo1 } from "../demo/CarouselDApiDemo1";
-import Load from './Loading'
+import Load from './Loading';
 import { Link } from "react-router-dom";
 
-
 const ServicesView = () => {
+  const [hospitalProfile, setHospitalProfile] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    const hospitalNo = userData.hospital_no;
+
+    fetch(`https://hean.mchaexpress.com/web-app/appcon/api/hospital-profile?hospital_no=${hospitalNo}`)
+      .then(response => response.json())
+      .then(data => {
+          setHospitalProfile(data.hospital_profile);
+          setIsLoading(false);
+      })
+      .catch(error => console.error('Error fetching hospital profile:', error));
+  }, []);
+
   return (
     <>
-    <Load/>
+      <Load />
       <div className='history-container'>
         {/* Reusable Code */}
         <nav>
           <div className="host-name-left">
-            <h1>CMC HOSTPITAL</h1>
+            <h1>{hospitalProfile ? hospitalProfile.hospital_name : "Loading..."}</h1>
             <div className="host-loc">
               <FaLocationDot className="icon" />
-              <p> LOS BAÑOS, LAGUNA</p>
+              <p>{hospitalProfile ? hospitalProfile.address : "Loading..."}</p>
             </div>
           </div>
           <div className="host-logo-right">
             <div className="right-layer1">
-              <img src={JPHost} />
+              <img src={JPHost} alt="Hospital Logo" />
             </div>
             <div className='right-layer2'>
-              <h3>CMC HOSTPITAL</h3>
+              <h3>{hospitalProfile ? hospitalProfile.hospital_name : "Loading..."}</h3>
               <Link to='/EditProfile'>
                 <p>Edit Profile</p>
               </Link>
@@ -42,12 +56,15 @@ const ServicesView = () => {
           <div></div>
         </div>
         <div className="history-table">
-          <CarouselDApiDemo1 />
+          {isLoading ? (
+            <p>Loading...</p>
+          ) : (
+            <CarouselDApiDemo1 />
+          )}
         </div>
-
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ServicesView
+export default ServicesView;

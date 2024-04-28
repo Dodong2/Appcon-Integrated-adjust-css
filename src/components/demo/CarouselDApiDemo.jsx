@@ -1,7 +1,7 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import { FaArrowDownLong } from "react-icons/fa6";
 import { Card, CardContent } from "@/components/ui/card";
-import { historyData } from '../pages/admin-side/HistoryData/historyData';
 import {
   Carousel,
   CarouselContent,
@@ -11,9 +11,24 @@ import {
 } from "@/components/ui/carousel";
 
 export function CarouselDApiDemo() {
-  const [api, setApi] = React.useState(null); // Assuming the Carousel component provides an API object
+  const [api, setApi] = React.useState(null);
+  const [alerts, setAlerts] = React.useState([]);
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const hospitalNo = userData.hospital_no;
+
+  React.useEffect(() => {
+    // Fetch alerts
+    fetch(`https://hean.mchaexpress.com/web-app/appcon/api/alerts?hospital_no=${hospitalNo}`)
+      .then(response => response.json())
+      .then(data => {
+          // Sort alerts in descending order based on the notified_date
+          const sortedAlerts = data.alerts_data.sort((a, b) => new Date(b.notified_date) - new Date(a.notified_date));
+          setAlerts(sortedAlerts);
+      })
+      .catch(error => console.error('Error fetching alerts:', error));
+  }, []);
 
   React.useEffect(() => {
     if (!api) {
@@ -28,36 +43,44 @@ export function CarouselDApiDemo() {
     });
   }, [api]);
 
+  // Function to open Google Maps link in new window
+  const openMapLink = (latitude, longitude) => {
+    window.open(`https://www.google.com/maps?q=${latitude},${longitude}`, '_blank');
+  };
+
   return (
     <div>
       <Carousel setApi={setApi} className='carousel-tailwind1'>
         <CarouselContent>
-          {Array.from({ length: 10 }).map((_, index) => (
-            <CarouselItem key={index}>
-              <Card className='bg-custom-dark carousel-tailwind2 rounded-none'>
-                <CardContent className="aspect-square p-0">
-                  <div className="table-info">
-                    <div className="table-date">Date <FaArrowDownLong className="icon4" /></div>
-                    <h1 className="table-location">Location</h1>
-                  </div>
-                  <table className="main-table">{/*index + 1*/}
-                    <thead className="table-head">
-                      <tr className="table-row1">
+          <CarouselItem>
+            <Card className='bg-custom-dark carousel-tailwind2 rounded-none'>
+              <CardContent className="aspect-square p-0">
+                <div className="table-info">
+                  <div className="table-date">Date <FaArrowDownLong className="icon4" /></div>
+                  <h1 className="table-location">Location</h1>
+                </div>
+                <table className="main-table">
+                  <thead className="table-head">
+                    <tr className='table-row2'>
+                      <th className='history-date'>Date</th>
+                      <th className='history-location'>Coordinates</th>
+                      <th className='history-location'>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {/* Map through sorted alerts to generate table rows */}
+                    {alerts.map((alert, index) => (
+                      <tr key={index} className='table-row2'>
+                        <td>{alert.notified_date}</td>
+                        <td >{alert.latitude} {alert.longitude}</td>
+                        <td><button onClick={() => openMapLink(alert.latitude, alert.longitude)}>View Map</button></td>
                       </tr>
-                      {historyData.map((item, index) => {
-                        return (
-                          <tr key={index} className='table-row2'>
-                            <td className='history-date'>{item.date}</td>
-                            <td className='history-location'>{item.loc}</td>
-                          </tr>
-                        )
-                      })}
-                    </thead>
-                  </table>
-                </CardContent>
-              </Card>
-            </CarouselItem>
-          ))}
+                    ))}
+                  </tbody>
+                </table>
+              </CardContent>
+            </Card>
+          </CarouselItem>
         </CarouselContent>
         <CarouselPrevious className='rounded absolute'/>
         <CarouselNext className='rounded absolute'/>
