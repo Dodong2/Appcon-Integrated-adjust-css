@@ -8,6 +8,7 @@ import History from './components/pages/History'
 import EditProfile from './components/pages/EditProfile';
 import NotifAdmin from './components/pages/NotifAdmin';
 import ServicesView from './components/pages/ServicesView';
+import ResetPassword from './components/pages/ResetPassword';
 
 import './App.css';
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/History' element={<History/>}/>
         <Route path='/ServicesView' element={<ServicesView/>}/>
         <Route path='/EditProfile' element={<EditProfile/>}/>
+        <Route path='/ResetPassword' element={<ResetPassword/>}/>
       </Routes>
     </BrowserRouter>
 

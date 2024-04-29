@@ -47,8 +47,11 @@ const LoginForm = () => {
   
       const data = await response.json();
       if (data.success) {
-        // PIN validation successful, redirect or handle accordingly
-        alert(data.message);
+        // PIN validation successful, redirect to ResetPassword with email and pin as query parameters
+        const queryParams = new URLSearchParams();
+        queryParams.append('email', emailParam);
+        queryParams.append('pin', pin);
+        window.location.href = `/ResetPassword?${queryParams.toString()}`;
       } else {
         // Error occurred, display error message in alert
         alert(data.message);
