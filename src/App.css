@@ -286,8 +286,6 @@ nav {
   justify-content: center;
 }
 
-
-
 /* History */
 .history-container {
   padding: 20px;
@@ -371,7 +369,7 @@ nav {
   line-height: 20px;
   text-align: right;
 }
-.table-row2 td{
+.table-row2 td {
   padding: 12px;
 }
 .history-date {
@@ -417,7 +415,8 @@ nav {
   gap: 30px;
 }
 .edit-img-left .form-account-detail button {
-  background: linear-gradient(103deg, #00e0ff -91.33%, #029 97.14%);  color: var(--white);
+  background: linear-gradient(103deg, #00e0ff -91.33%, #029 97.14%);
+  color: var(--white);
   width: 150px;
   height: 44px;
   font-family: Poppins-Bold;
@@ -491,11 +490,11 @@ nav {
   font-family: Poppins-Bold;
 }
 .edit-footer .edit-btn-1 {
-  background: linear-gradient(103deg, #00e0ff -91.33%, #029 97.14%);  color: var(--white);
+  background: linear-gradient(103deg, #00e0ff -91.33%, #029 97.14%);
+  color: var(--white);
   width: 216px;
   height: 44px;
   transition: all ease-in 0.25s;
-
 }
 .edit-footer .edit-btn-1:hover {
   box-shadow: 5px 5px 35px #029, 0 0 20px #00e0ff, 0 0 30px #029;
@@ -512,7 +511,7 @@ nav {
   transition: all ease-in 0.25s;
 }
 .edit-footer .edit-btn-2:hover {
-  box-shadow: 5px 5px 35px  var(--card-btn3-red), 0 0 30px var(--card-btn3-red);
+  box-shadow: 5px 5px 35px var(--card-btn3-red), 0 0 30px var(--card-btn3-red);
   background-size: 300% 100%;
   transition: background-position 0.4s ease-in-out, box-shadow 0.4s ease-in-out,
     color 0.4s ease-in-out;
@@ -662,7 +661,6 @@ nav {
   transition: opacity 1s ease-out;
 }
 
-
 /* mobile view */
 @media only screen and (max-width: 767px) {
   /* emergency Alert containers*/
@@ -670,7 +668,6 @@ nav {
     width: calc(100%);
   }
   .host-name-left {
-   
   }
   .host-name-left h1 {
     font-family: Poppins-Bold;
@@ -922,46 +919,45 @@ nav {
     width: 100%;
   }
 
-
   /* Notif-admin-side */
-.notif-admin-container {
-  width: calc(100%);
-}
-.notif-admin-container .notif-emergency-admin {
-  width: 300px;
-}
-.notif-emerg-txt {
-  text-align: center;
-  line-height: 25px;
-}
-.notif-emerg-txt h1 {
-  font-family: Poppins-ExtraBold;
-  color: var(--card-btn3-red);
-  font-size: 25px;
-}
-.notif-emerg-txt p {
-  font-family: Poppins;
-  font-weight: 600;
-  color: var(--black);
-  font-size: 15px;
-}
-/* Loading Page */
-.pulse {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 224, 255, 0.2) 0%,
-    rgba(0, 224, 255, 0.2) 100%
-  );
-  border-radius: 50%;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.4;
-}
+  .notif-admin-container {
+    width: calc(100%);
+  }
+  .notif-admin-container .notif-emergency-admin {
+    width: 300px;
+  }
+  .notif-emerg-txt {
+    text-align: center;
+    line-height: 25px;
+  }
+  .notif-emerg-txt h1 {
+    font-family: Poppins-ExtraBold;
+    color: var(--card-btn3-red);
+    font-size: 25px;
+  }
+  .notif-emerg-txt p {
+    font-family: Poppins;
+    font-weight: 600;
+    color: var(--black);
+    font-size: 15px;
+  }
+  /* Loading Page */
+  .pulse {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 224, 255, 0.2) 0%,
+      rgba(0, 224, 255, 0.2) 100%
+    );
+    border-radius: 50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.4;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {

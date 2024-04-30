@@ -83,7 +83,6 @@ form .fill {
   flex-direction: column;
   width: 100%;
   color: #fff;
-
 }
 .password-div {
   display: flex;
@@ -136,9 +135,6 @@ form .button-submit {
   -webkit-text-fill-color: white;
 }
 
-
-
-
 .button-submit:hover {
   box-shadow: 5px 5px 35px #029, 0 0 20px #00e0ff, 0 0 30px #029;
   background-size: 300% 100%;
@@ -146,7 +142,6 @@ form .button-submit {
     color 0.4s ease-in-out;
   animation: shadow-color 2s linear infinite;
 }
-
 
 form p {
   color: #fff;
@@ -358,7 +353,7 @@ svg {
 }
 .otp-input .mobile-tel {
   background: none;
-  background: rgba(255, 255, 255, 0.20);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   border: none;
   width: 300px;
@@ -368,7 +363,7 @@ svg {
   margin: auto;
 }
 .otp-num {
-  display: inline-block; 
+  display: inline-block;
   margin-right: 10px;
 }
 .otp-input .otp-circle {
@@ -383,9 +378,8 @@ svg {
   margin-bottom: 100px;
   gap: 16px;
 } */
-.otp-input .mobile-tel{
+.otp-input .mobile-tel {
   color: #fff;
-  
 }
 .otp-input svg {
   position: absolute;
@@ -415,7 +409,6 @@ svg {
   justify-content: center;
   margin-top: 20px;
   text-decoration: none;
-
 }
 .otp-button button {
   display: flex;
@@ -430,7 +423,7 @@ svg {
   color: #fff;
   cursor: pointer;
 }
-.otp-button button  {
+.otp-button button {
   color: white;
   text-decoration: none;
 }
@@ -538,7 +531,6 @@ svg {
     width: 485px;
 
     padding: 0px 20px;
-
   }
   .header-container {
     position: relative;
@@ -688,6 +680,4 @@ svg {
   .otp-button a {
     font-size: 1rem;
   }
-
-
 }
