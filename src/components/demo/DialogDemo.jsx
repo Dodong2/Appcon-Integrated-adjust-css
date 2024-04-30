@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { IoBedSharp } from "react-icons/io5";
 import {
   Dialog,
   DialogContent,
@@ -89,9 +90,7 @@ export default function DialogDemo() {
   return (
     <Dialog className="border-custom-red">
       <DialogTrigger asChild>
-        <Button variant="outline" className="mt-4">
-          Update Available Beds
-        </Button>
+      <Button variant="outline" className='mt-4'><IoBedSharp className="text-black mr-2 hover:text-custom-blue" /> Update Beds</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>

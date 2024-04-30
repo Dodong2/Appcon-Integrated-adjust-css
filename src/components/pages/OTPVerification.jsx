@@ -52,7 +52,6 @@ const OTPVerification = () => {
             <p>Please enter your email</p>
           </div>
           <form onSubmit={handleFormSubmit} className={LoginStyle['otp-input']}>
-            <FaHashtag className={LoginStyle['icons-hashtag']} />
             <input
               className={LoginStyle['mobile-tel']}
               type="email"

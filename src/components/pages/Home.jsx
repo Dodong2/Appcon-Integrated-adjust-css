@@ -88,11 +88,18 @@ const Home = () => {
           </div>
         </nav>
         {/* Render the DialogDemo */}
-        <Dialog>
-          <DialogTrigger asChild={<Button variant="outline" className='btn-modal'>Edit Profile</Button>}></DialogTrigger>
-          <DialogDemo />
-          <DialogDemo2 />
-        </Dialog>
+        <div className='Dialog-btns'>
+          <Dialog>
+            <DialogTrigger asChild={<Button variant="outline" className='btn-modal'></Button>}>
+            </DialogTrigger>
+            <DialogDemo />
+          </Dialog>
+          <Dialog>
+            <DialogTrigger asChild={<Button variant="outline" className='btn-modal'></Button>}>
+            </DialogTrigger>
+            <DialogDemo2 />
+          </Dialog>
+        </div>
         <div className='emergency-container'>
           {/* Emergency Left side*/}
           <div className='emergency'>

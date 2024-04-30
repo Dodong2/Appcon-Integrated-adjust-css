@@ -79,6 +79,7 @@ const LoginForm = () => {
             <p>Enter the 4-digit code that we have sent via the email <br /> {emailParam}</p>
           </div>
           <form onSubmit={handleSubmit} className={LoginStyle['otp-input']}>
+          <div className='otp-circle'>
             {otpDigits.map((digit, index) => (
               <input
                 key={index}
@@ -89,7 +90,7 @@ const LoginForm = () => {
                 onKeyDown={(e) => handleKeyDown(e, index)}
                 ref={inputRefs.current[index]}
               />
-            ))}
+            ))}</div>
             <div className={LoginStyle['otp-button']}>
               <button type="submit" disabled={isLoading}>
                 {isLoading ? 'Loading...' : 'Continue'} {/* Change button text based on loading state */}

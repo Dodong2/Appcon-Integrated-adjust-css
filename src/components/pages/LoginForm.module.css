@@ -348,19 +348,13 @@ svg {
   margin-bottom: 5px;
 }
 .otp-input {
-  position: relative;
   margin-top: 20px;
   margin-bottom: 100px;
   gap: 16px;
-  display: block;
   align-items: center;
-}
-.icons-hashtag {
-  position: absolute;
-  top: 50%;
-  left: 25px;
-  transform: translate(-50%, -50%);
-  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .otp-input .mobile-tel {
   background: none;
@@ -373,6 +367,13 @@ svg {
   display: block;
   margin: auto;
 }
+.otp-num {
+  display: inline-block; 
+  margin-right: 10px;
+}
+.otp-input .otp-circle {
+  gap: 40px;
+}
 
 /* .otp-input{
   display: flex;
@@ -381,7 +382,6 @@ svg {
   margin-top: 20px;
   margin-bottom: 100px;
   gap: 16px;
-  position: relative;
 } */
 .otp-input .mobile-tel{
   color: #fff;
@@ -536,9 +536,9 @@ svg {
 
   form {
     width: 485px;
-    height: 699px;
+
     padding: 0px 20px;
-    margin-top: 10px;
+
   }
   .header-container {
     position: relative;

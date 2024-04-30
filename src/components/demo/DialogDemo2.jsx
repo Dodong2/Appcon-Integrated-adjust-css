@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { IoIosMedkit } from "react-icons/io";
 import {
   Dialog,
   DialogContent,
@@ -63,10 +64,8 @@ export default function DialogDemo2() {
   return (
     <Dialog className="border-custom-red">
       <DialogTrigger asChild>
-        <Button variant="outline" className="mt-4">
-          Add Service
-        </Button>
-      </DialogTrigger>
+      <Button variant="outline" className='mt-4'><IoIosMedkit className="text-black mr-1 hover:text-custom-blue" />Add Services</Button>
+            </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle className="text-custom-blue">Services</DialogTitle>
